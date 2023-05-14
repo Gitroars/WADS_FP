@@ -18,10 +18,22 @@ const ProductDetailsPage = () => {
       <AddedCartMessageComponent />
       <Row className='mt-5'>
         <Col md={4}>
-          <Image fluid src='/images/books/fantasy.jpg' />
-          <Image fluid src='/images/books/litrpg.jpg' />
-          <Image fluid src='/images/books/romance.jpg' />
-          <Image fluid src='/images/books/scifi.jpg' />
+          <div className='first'>
+            <Image fluid src='/images/books/fantasy.jpg' />
+          </div>
+          <br />
+          <div className='second'>
+            <Image fluid src='/images/books/litrpg.jpg' />
+          </div>
+          <br />
+          <div className='third'>
+            <Image fluid src='/images/books/romance.jpg' />
+          </div>
+          <br />
+          <div className='fourth'>
+            <Image fluid src='/images/books/scifi.jpg' />
+          </div>
+          <br />
         </Col>
         <Col md={8}>
           <Row>
