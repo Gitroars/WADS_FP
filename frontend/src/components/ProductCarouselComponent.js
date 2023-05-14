@@ -12,7 +12,9 @@ const ProductCarouselComponent = () => {
           crossOrigin='anonymous'
           className='d-block w-100'
           style={{ height: "350px", objectFit: "cover" }}
-          src='/images/carousel/carousel-1.jpg'
+          src='/images/carousel/carousel-1.j
+          
+          pg'
           alt='First slide'
         />
         <Carousel.Caption>

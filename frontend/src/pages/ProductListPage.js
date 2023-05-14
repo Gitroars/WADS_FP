@@ -7,16 +7,18 @@ import RatingFilterComponent from "../components/filterQueryResultOptions/Rating
 import CategoryFilterComponent from "../components/filterQueryResultOptions/CategoryFilterComponent";
 import AttributesFilterComponent from "../components/filterQueryResultOptions/AttributesFilterComponent";
 
-const ProductListPage = () => {
+const ProductListPage = ({ images, idx }) => {
   return (
     <Container fluid>
       <Row>
         <Col md={3}>
           <ListGroup variant='flush'>
-            <ListGroup.Item>
+            <ListGroup.Item className='mb-3 mt-3'>
               <SortOptionsComponent />
             </ListGroup.Item>
             <ListGroup.Item>
+              FILTER:
+              <br />
               <PriceFilterComponent />
             </ListGroup.Item>
             <ListGroup.Item>
@@ -29,13 +31,20 @@ const ProductListPage = () => {
               <AttributesFilterComponent />
             </ListGroup.Item>
             <ListGroup.Item>
-              <Button variant='primary'>Primary</Button>
-              <Button variant='danger'>Danger</Button>
+              <Button variant='primary'>Filter</Button>
+              <Button variant='danger'>Reset Filters</Button>
             </ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={9}>
-          <ProductForListComponent />
+          {Array.from({ length: 4 }).map((_, idx) => (
+            <ProductForListComponent
+              key={idx}
+              images={["fantasy", "litrpg", "romance", "scifi"]}
+              idx={idx}
+            />
+          ))}
+
           <PaginationComponent />
         </Col>
       </Row>
