@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import {
   Row,
   Col,
@@ -11,26 +11,37 @@ import {
 } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
 import AddedCartMessageComponent from "../components/AddedCartMessageComponent";
+import ImageZoom from "js-image-zoom";
 
 const ProductDetailsPage = () => {
+  var options = {
+    scale: 0.5,
+    offset: { vertical: 0, horizontal: 0 },
+  };
+  useEffect(() => {
+    new ImageZoom(document.getElementById("first"), options);
+    new ImageZoom(document.getElementById("second"), options);
+    new ImageZoom(document.getElementById("third"), options);
+    new ImageZoom(document.getElementById("fourth"), options);
+  });
   return (
     <Container>
       <AddedCartMessageComponent />
       <Row className='mt-5'>
-        <Col md={4}>
-          <div className='first'>
+        <Col style={{ zIndex: 1 }} md={4}>
+          <div id='first'>
             <Image fluid src='/images/books/fantasy.jpg' />
           </div>
           <br />
-          <div className='second'>
+          <div id='second'>
             <Image fluid src='/images/books/litrpg.jpg' />
           </div>
           <br />
-          <div className='third'>
+          <div id='third'>
             <Image fluid src='/images/books/romance.jpg' />
           </div>
           <br />
-          <div className='fourth'>
+          <div id='fourth'>
             <Image fluid src='/images/books/scifi.jpg' />
           </div>
           <br />
