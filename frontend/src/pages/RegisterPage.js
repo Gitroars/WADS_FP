@@ -26,7 +26,7 @@ const RegisterPage = () => {
   };
   return (
     <Container>
-      <Row className='mt-5'>
+      <Row className='mt-5 justify-content-md-center'>
         <Col md={6}>
           <h1>Register</h1>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
