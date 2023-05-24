@@ -7,8 +7,11 @@ app.get("/", (req, res) => {
   throw new Error("An error occurred");
   res.send("Hello World!");
 });
+
 //MongoDB connection
 const connectDB = require("./config/db");
+const Book = require("./models/BookModel");
+
 connectDB();
 app.get("/a", (req, res, next) => {
   // Before a second, execute the code below
@@ -20,6 +23,29 @@ app.get("/a", (req, res, next) => {
     }
   });
 });
+
+//making book
+app.get("/", async(req, res, next) => {
+  try{
+    const book =new Book
+    book.name="New book name"
+
+    const bookSaved = await Book.save()
+    console.log(bookSaved=book)
+
+    const books = await Book.find()
+    console.log(books.length)
+
+    res.send("book listed"+ book._id)
+
+  }
+  //if non existent
+    catch(error){
+      next(error)
+      
+  }
+});
+
 
 app.use("/api", apiRoutes);
 
